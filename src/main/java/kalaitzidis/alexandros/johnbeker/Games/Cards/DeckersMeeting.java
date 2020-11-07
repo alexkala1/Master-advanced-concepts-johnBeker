@@ -1,14 +1,9 @@
 package kalaitzidis.alexandros.johnbeker.Games.Cards;
 
-import kalaitzidis.alexandros.johnbeker.Games.CardDice.CardDicePlayer;
-import kalaitzidis.alexandros.johnbeker.Games.Dice.PersonDicePlayer;
-import kalaitzidis.alexandros.johnbeker.Games.CardDice.Two5CardDicePlayer;
-import kalaitzidis.alexandros.johnbeker.Games.CardDice.Two6CardDicePlayer;
 import kalaitzidis.alexandros.johnbeker.Interfaces.CardPlayer;
 import kalaitzidis.alexandros.johnbeker.Interfaces.DicePlayer;
 import kalaitzidis.alexandros.johnbeker.Models.CardRank;
 import kalaitzidis.alexandros.johnbeker.Models.Deck;
-import kalaitzidis.alexandros.johnbeker.Models.Name;
 import kalaitzidis.alexandros.johnbeker.Models.Person;
 
 import java.util.HashSet;
@@ -19,7 +14,7 @@ import java.util.Set;
 public class DeckersMeeting {
     private static final Map<DicePlayer, Integer> diceScores = new LinkedHashMap<>();
 
-    private static void diceGame(DicePlayer player1, DicePlayer player2) {
+    public static void diceGame(DicePlayer player1, DicePlayer player2) {
         int finalScore1 = 0;
         int finalScore2 = 0;
 
@@ -71,23 +66,7 @@ public class DeckersMeeting {
 
     }
 
-    public static void main(String[] args) {
-        Person[] player = new Person[14];
-        player[0] = new PersonDicePlayer(new Name("Jack", "A"), false, false);
-        player[1] = new PersonDicePlayer(new Name("Jim", "B"), false, false);
-        player[2] = new PersonDicePlayer(new Name("John", "C"), true, false);
-        player[3] = new PersonDicePlayer(new Name("Peter", "D"), true, false);
-        player[4] = new PersonDicePlayer(new Name("Nik", "E"), true, false);
-        player[5] = new PersonDicePlayer(new Name("Jane", "F"), true, false);
-        player[6] = new PersonDicePlayer(new Name("Peter", "G"), false, true);
-        player[7] = new PersonDicePlayer(new Name("Alan", "H"), false, true);
-        player[8] = new PersonCardPlayer(new Name("George", "L"));
-        player[9] = new PersonCardPlayer(new Name("John", "Decker"));
-        player[10] = new PersonCardPlayer(new Name("Ben", "Decker"));
-        player[11] = new CardDicePlayer(new Name("George", "L"), false, false);
-        player[12] = new Two6CardDicePlayer(new Name("John", "M"), false, false);
-        player[13] = new Two5CardDicePlayer(new Name("Ben", "N"), false, false);
-
+    private static void CardPlay(Person[] player) {
         Set<CardPlayer> cardPlayers = new HashSet<>();
 
         for (int i = 0; i < player.length - 1; i++) {
@@ -109,7 +88,7 @@ public class DeckersMeeting {
         CardPlayer winner = null;
 
         for (CardPlayer cardPlayer : cardPlayers) {
-            System.out.print((Person) cardPlayer + ": ");
+            System.out.print(cardPlayer + ": ");
 
             long count = cardPlayer.cardsInHand().filter(card -> card.getCardRank() == CardRank.ACE).count();
 

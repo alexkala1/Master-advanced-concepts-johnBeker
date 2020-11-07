@@ -1,6 +1,6 @@
 package kalaitzidis.alexandros.johnbeker.Models;
 
-public abstract class Person {
+public class Person {
     private Name name;
     private Boolean isCheating5;
     private Boolean isCheating6;
