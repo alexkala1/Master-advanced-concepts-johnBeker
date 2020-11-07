@@ -20,13 +20,10 @@ public class PersonCardPlayer extends Person implements CardPlayer {
     @Override
     public void pickCard(Deck deck) {
         pickCard(deck, cards);
-//cards.add(deck.pickCard());
     }
 
     @Override
     public void openCards() {
-//        System.out.println(cards);
-//        cards.removeAll(cards);
         openCards(cards);
     }
 

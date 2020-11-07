@@ -12,6 +12,7 @@ public class Person {
     }
 
     public Person(Name name) {
+        this.name = name;
     }
 
     public Name getName() {
@@ -40,10 +41,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name=" + name +
-                ", isCheating5=" + isCheating5 +
-                ", isCheating6=" + isCheating6 +
-                '}';
+        return name.toString();
     }
 }
