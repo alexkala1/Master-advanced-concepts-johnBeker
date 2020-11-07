@@ -40,7 +40,10 @@ public class Person {
 
     @Override
     public String toString() {
-        return name.getFirstName() + " " + name.getLastName();
+        return "Person{" +
+                "name=" + name +
+                ", isCheating5=" + isCheating5 +
+                ", isCheating6=" + isCheating6 +
+                '}';
     }
-
 }

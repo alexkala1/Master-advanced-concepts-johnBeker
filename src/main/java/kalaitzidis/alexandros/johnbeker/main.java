@@ -32,6 +32,10 @@ public class main {
         player[11] = new CardDicePlayer(new Name("George", "L"), false, false);
         player[12] = new Two6CardDicePlayer(new Name("John", "M"), false, false);
         player[13] = new Two5CardDicePlayer(new Name("Ben", "N"), false, false);
+
+        for (Person p : player) {
+            System.out.println(p);
+        }
     }
 
 }
