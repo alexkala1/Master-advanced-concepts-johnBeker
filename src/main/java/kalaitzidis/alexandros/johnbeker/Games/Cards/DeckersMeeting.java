@@ -14,7 +14,7 @@ import java.util.Set;
 public class DeckersMeeting {
     private static final Map<DicePlayer, Integer> diceScores = new LinkedHashMap<>();
 
-    public static void diceGame(DicePlayer player1, DicePlayer player2) {
+    public void diceGame(DicePlayer player1, DicePlayer player2) {
         int finalScore1 = 0;
         int finalScore2 = 0;
 
@@ -35,9 +35,11 @@ public class DeckersMeeting {
         score = diceScores.get(player2);
         if (score == null) score = 0;
         diceScores.put(player2, finalScore2 + score);
+
+        System.out.println(diceScores);
     }
 
-    private static void gameCard(Set<CardPlayer> cardPlayers) {
+    public void gameCard(Set<CardPlayer> cardPlayers) {
         Deck deck = new Deck();
         deck.shuffle();
 
@@ -51,7 +53,7 @@ public class DeckersMeeting {
         }
     }
 
-    private static void meet(Person p1, Person p2, Set<CardPlayer> cardPlayers) {
+    private void meet(Person p1, Person p2, Set<CardPlayer> cardPlayers) {
         if (p1 instanceof DicePlayer && p2 instanceof DicePlayer) {
             diceGame((DicePlayer) p1, (DicePlayer) p2);
         }
@@ -66,7 +68,7 @@ public class DeckersMeeting {
 
     }
 
-    private static void CardPlay(Person[] player) {
+    public void CardPlay(Person[] player) {
         Set<CardPlayer> cardPlayers = new HashSet<>();
 
         for (int i = 0; i < player.length - 1; i++) {
