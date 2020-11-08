@@ -8,13 +8,15 @@ import kalaitzidis.alexandros.johnbeker.Interfaces.DicePlayer;
 import kalaitzidis.alexandros.johnbeker.Models.Name;
 import kalaitzidis.alexandros.johnbeker.Models.Person;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ui {
+    Person[] people = initializePlayers();
+    DeckersMeeting deckersMeeting = new DeckersMeeting();
+
     public void run() {
-        Person[] people = initializePlayers();
         do {
-            DeckersMeeting deckersMeeting = new DeckersMeeting();
             System.out.println("Hello. Welcome to John Beker fifteen friends exercise.\n"
                     + "Please select the game you want to see being played.\n"
                     + "1. Dice game\n"
@@ -25,7 +27,7 @@ public class Ui {
 
             switch (choice) {
                 case 1:
-                    deckersMeeting.diceGame((DicePlayer) people[0], (DicePlayer) people[3]);
+                    dicegame();
                     break;
                 case 2:
                     deckersMeeting.CardPlay(people);
@@ -42,6 +44,35 @@ public class Ui {
         String response = new Scanner(System.in).nextLine();
 
         return !response.equals("n");
+    }
+
+    private void dicegame () {
+        ArrayList<DicePlayer> dicePlayers = new ArrayList<>();
+        for (int i = 0; i < people.length; i++) {
+            if (people[i] instanceof CardDicePlayer || people[i] instanceof DicePlayer) {
+                dicePlayers.add((DicePlayer) people[i]);
+                System.out.println(people[i]);
+            }
+        }
+        System.out.println("Please choose the players that will play against each other.");
+        int index1 = 0;
+        for (DicePlayer player : dicePlayers)
+            System.out.println(index1++ + " " + player);
+        System.out.println("Choose player 1");
+        int choice1 = new Scanner(System.in).nextInt();
+
+
+
+        System.out.println("Choose player 2");
+        int index2 = 0;
+        for (DicePlayer player : dicePlayers)
+            System.out.println(index2++ + " " + player);
+        int choice2 = new Scanner(System.in).nextInt();
+
+        DicePlayer player1 = dicePlayers.get(choice1);
+        DicePlayer player2 = dicePlayers.get(choice2);
+
+        deckersMeeting.diceGame(player1, player2);
     }
 
 
