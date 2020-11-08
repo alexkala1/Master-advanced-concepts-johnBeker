@@ -1,10 +1,8 @@
 package kalaitzidis.alexandros.johnbeker;
 
 import kalaitzidis.alexandros.johnbeker.Games.CardDice.CardDicePlayer;
-import kalaitzidis.alexandros.johnbeker.Games.CardDice.Two5CardDicePlayer;
-import kalaitzidis.alexandros.johnbeker.Games.CardDice.Two6CardDicePlayer;
-import kalaitzidis.alexandros.johnbeker.Games.Cards.DeckersMeeting;
 import kalaitzidis.alexandros.johnbeker.Games.Cards.PersonCardPlayer;
+import kalaitzidis.alexandros.johnbeker.Games.DeckersMeeting;
 import kalaitzidis.alexandros.johnbeker.Games.Dice.PersonDicePlayer;
 import kalaitzidis.alexandros.johnbeker.Interfaces.DicePlayer;
 import kalaitzidis.alexandros.johnbeker.Models.Name;
@@ -61,8 +59,8 @@ public class Ui {
         player[9] = new PersonCardPlayer(new Name("John", "Decker"));
         player[10] = new PersonCardPlayer(new Name("Ben", "Decker"));
         player[11] = new CardDicePlayer(new Name("George", "L"), false, false);
-        player[12] = new Two6CardDicePlayer(new Name("John", "M"), false, false);
-        player[13] = new Two5CardDicePlayer(new Name("Ben", "N"), false, false);
+        player[12] = new CardDicePlayer(new Name("John", "M"), true, false);
+        player[13] = new CardDicePlayer(new Name("Ben", "N"), false, true);
 
         for (Person p : player) {
             System.out.println(p);

@@ -1,4 +1,4 @@
-package kalaitzidis.alexandros.johnbeker.Games.Cards;
+package kalaitzidis.alexandros.johnbeker.Games;
 
 import kalaitzidis.alexandros.johnbeker.Interfaces.CardPlayer;
 import kalaitzidis.alexandros.johnbeker.Interfaces.DicePlayer;
