@@ -26,6 +26,8 @@ public class DeckersMeeting {
             } else if (tempScore2 > tempScore1) {
                 finalScore2 += tempScore2;
             }
+            System.out.println("Player 1 rolled: " + tempScore1 + "\nplayer 2 rolled: " + tempScore2 +
+                    "\nSo the score is " + finalScore1 + " " + finalScore2 + "\n");
         }
 
         Integer score = diceScores.get(player1);
@@ -36,7 +38,10 @@ public class DeckersMeeting {
         if (score == null) score = 0;
         diceScores.put(player2, finalScore2 + score);
 
-        System.out.println(diceScores);
+        if (finalScore1 > finalScore2)
+            System.out.println("And the winner is " + player1 + " with " + diceScores.get(player1) + " points");
+        else
+            System.out.println("And the winner is " + player2 + " with " + diceScores.get(player2) + " points");
     }
 
     public void gameCard(Set<CardPlayer> cardPlayers) {
