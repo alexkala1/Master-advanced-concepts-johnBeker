@@ -89,7 +89,7 @@ public class DeckersMeeting {
                 prob[i] = "1/" + probability1[i];
         }
 
-        System.out.println("The probability of the next roll of player two is:" + Arrays.toString(prob));
+        System.out.println("The probability of the next roll of player one is:" + Arrays.toString(prob));
 
         return probability1;
     }
