@@ -65,10 +65,6 @@ public class DeckersMeeting {
             finalProbability1[4] = 0;
             finalProbability1[5] = 3;
         }
-        if (player1.getCheating6() == true) {
-            finalProbability1[4] = 0;
-            finalProbability1[5] = 3;
-        }
         if (player2.getCheating6() == true) {
             finalProbability2[4] = 0;
             finalProbability2[5] = 3;
